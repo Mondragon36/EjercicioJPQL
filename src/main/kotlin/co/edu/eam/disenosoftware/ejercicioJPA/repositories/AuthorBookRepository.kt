@@ -1,8 +1,8 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Author
-import co.edu.eam.disenosoftware.ejercicioJPA.models.AuthorBook
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Book
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Author
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.AuthorBook
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Book
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
@@ -34,16 +34,16 @@ class AuthorBookRepository {
         }
     }
 
-    fun findAuhorAuthor(author: Long): List<Book> {
-        val query = em.createQuery("SELECT authorBook.author FROM AuthorBook authorBook WHERE authorBook.book.code = : book")
-        query.setParameter("author",author)
-        return query.resultList as List<Book>
+    fun findByAuthor(id: Long): List<AuthorBook> {
+        val query = em.createQuery("SELECT authorBook FROM AuthorBook authorBook WHERE authorBook.author.id =: id")
+        query.setParameter("id", id)
+        return query.resultList as List<AuthorBook>
     }
 
-    fun findAuthorBook(book: String): List<Author> {
-        val query = em.createQuery("SELECT authorBook.author FROM AuthorBook WHERE authorBook.book.code = :book")
-        query.setParameter("book", book)
-        return query.resultList as List<Author>
+    fun findByBook(id: String): List<AuthorBook> {
+        val query = em.createQuery("SELECT authorBook FROM AuthorBook WHERE authorBook.book.id =: id")
+        query.setParameter("id", id)
+        return query.resultList as List<AuthorBook>
     }
 
 

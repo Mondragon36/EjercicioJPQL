@@ -1,10 +1,10 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Book
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Borrow
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Publisher
-import co.edu.eam.disenosoftware.ejercicioJPA.models.User
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Book
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Borrow
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Publisher
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.User
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,4 +1,4 @@
-package co.edu.eam.disenosoftware.ejercicioJPA.models
+package co.edu.eam.disenosoftware.ejercicioJPA.models.entities
 
 import java.io.Serializable
 import javax.persistence.*
@@ -13,6 +13,9 @@ data class Book(
 
     @Column(name = "isbn_libro")
     var isbn_libro: String,
+
+    @Column(name="stock")
+    var cantidad: Int,
 
     @Column(name = "nombre_libro")
     var nombre_libro: String,

@@ -1,6 +1,6 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Publisher
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Publisher
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
@@ -18,7 +18,7 @@ class PublisherRepository {
         em.persist(publisher)
     }
 
-    fun find(code: String):Publisher? {
+    fun find(code: String): Publisher? {
         return em.find(Publisher::class.java, code)
     }
 

@@ -1,6 +1,6 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Author
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Author
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

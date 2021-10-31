@@ -1,4 +1,4 @@
-package co.edu.eam.disenosoftware.ejercicioJPA.models
+package co.edu.eam.disenosoftware.ejercicioJPA.models.entities
 
 import java.io.Serializable
 import javax.persistence.Column

@@ -1,6 +1,6 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Borrow
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Borrow
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional

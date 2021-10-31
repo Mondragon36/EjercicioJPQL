@@ -1,9 +1,9 @@
 package co.edu.eam.disenosoftware.ejercicioJPA.repositories
 
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Author
-import co.edu.eam.disenosoftware.ejercicioJPA.models.AuthorBook
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Book
-import co.edu.eam.disenosoftware.ejercicioJPA.models.Publisher
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Author
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.AuthorBook
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Book
+import co.edu.eam.disenosoftware.ejercicioJPA.models.entities.Publisher
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -29,7 +29,7 @@ class TestAuthorBookRepository {
     @Test
     fun testCreate() {
         val publisher = Publisher("21", "Planeta")
-        val book = Book("001", "A1", "Amigo imaginario", publisher)
+        val book = Book("001", "A1", 10,"Amigo imaginario", publisher)
         val author = Author(1, "Mondragon", "Brayan")
         authorBookRepository.create(AuthorBook(1, author, book))
         val authorBook = entityManager.find(AuthorBook::class.java, 1)
@@ -42,7 +42,7 @@ class TestAuthorBookRepository {
     @Test
     fun testFind() {
         val publisher = Publisher("21", "Planeta")
-        val book = Book("001", "A1", "Amigo imaginario", publisher)
+        val book = Book("001", "A1", 10,"Amigo imaginario", publisher)
         val author = Author(1, "Mondragon", "Brayan")
         entityManager.persist(AuthorBook(1, author, book))
         val authorBook = authorBookRepository.find(1)
@@ -60,7 +60,7 @@ class TestAuthorBookRepository {
     @Test
     fun testUpdate() {
         val publisher = Publisher("21", "Planeta")
-        val book = Book("001", "A1", "Amigo imaginario", publisher)
+        val book = Book("001", "A1", 10,"Amigo imaginario", publisher)
         val author = Author(1, "Mondragon", "Brayan")
         entityManager.persist(AuthorBook(1, author, book))
         val authorBook = entityManager.find(AuthorBook::class.java, 1)
@@ -74,7 +74,7 @@ class TestAuthorBookRepository {
     @Test
     fun testDelete() {
         val publisher = Publisher("21", "Planeta")
-        val book = Book("001", "A1", "Amigo imaginario", publisher)
+        val book = Book("001", "A1", 10,"Amigo imaginario", publisher)
         val author = Author(1, "Mondragon", "Brayan")
         entityManager.persist(AuthorBook(1, author, book))
         println(authorBookRepository.find(1))
@@ -88,8 +88,8 @@ class TestAuthorBookRepository {
     @Test
     fun testFindAuthorBook() {
         val publisher = Publisher("21", "Planeta")
-        val bookOne = Book("001", "A1", "Amigo imaginario", publisher)
-        val bookTwo = Book("002", "A2", "Ciudad de papel", publisher)
+        val bookOne = Book("001", "A1", 10,"Amigo imaginario", publisher)
+        val bookTwo = Book("002", "A2", 10,"Ciudad de papel", publisher)
         val author = Author(1, "Mondragon", "Brayan")
         entityManager.persist(publisher)
         entityManager.persist(bookOne)
@@ -97,10 +97,10 @@ class TestAuthorBookRepository {
         entityManager.persist(author)
         entityManager.persist(AuthorBook(1, author, bookOne))
         entityManager.persist(AuthorBook(2, author, bookTwo))
-        val list = authorBookRepository.findAuthorBook("21")
+        val list = authorBookRepository.findByAuthor(21)
         Assertions.assertEquals(2, list.size)
-        println(list[0].name)
-        println(list[1].name)
+        println(list[0].author.name)
+        println(list[1].author.name)
     }
 
 }
